@@ -1,3 +1,3 @@
-/workspace/build/CMakeFiles/mini-simulator.dir
-/workspace/build/CMakeFiles/edit_cache.dir
-/workspace/build/CMakeFiles/rebuild_cache.dir
+/workspace/mini-simulator/build/CMakeFiles/mini-simulator.dir
+/workspace/mini-simulator/build/CMakeFiles/edit_cache.dir
+/workspace/mini-simulator/build/CMakeFiles/rebuild_cache.dir

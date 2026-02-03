@@ -53,10 +53,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /workspace
+CMAKE_SOURCE_DIR = /workspace/mini-simulator
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /workspace/build
+CMAKE_BINARY_DIR = /workspace/mini-simulator/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/mini-simulator.dir/depend.make
@@ -72,44 +72,44 @@ include CMakeFiles/mini-simulator.dir/flags.make
 CMakeFiles/mini-simulator.dir/main.cpp.o: CMakeFiles/mini-simulator.dir/flags.make
 CMakeFiles/mini-simulator.dir/main.cpp.o: ../main.cpp
 CMakeFiles/mini-simulator.dir/main.cpp.o: CMakeFiles/mini-simulator.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mini-simulator.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mini-simulator.dir/main.cpp.o -MF CMakeFiles/mini-simulator.dir/main.cpp.o.d -o CMakeFiles/mini-simulator.dir/main.cpp.o -c /workspace/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspace/mini-simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mini-simulator.dir/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mini-simulator.dir/main.cpp.o -MF CMakeFiles/mini-simulator.dir/main.cpp.o.d -o CMakeFiles/mini-simulator.dir/main.cpp.o -c /workspace/mini-simulator/main.cpp
 
 CMakeFiles/mini-simulator.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mini-simulator.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspace/main.cpp > CMakeFiles/mini-simulator.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspace/mini-simulator/main.cpp > CMakeFiles/mini-simulator.dir/main.cpp.i
 
 CMakeFiles/mini-simulator.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mini-simulator.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspace/main.cpp -o CMakeFiles/mini-simulator.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspace/mini-simulator/main.cpp -o CMakeFiles/mini-simulator.dir/main.cpp.s
 
 CMakeFiles/mini-simulator.dir/Core.cc.o: CMakeFiles/mini-simulator.dir/flags.make
 CMakeFiles/mini-simulator.dir/Core.cc.o: ../Core.cc
 CMakeFiles/mini-simulator.dir/Core.cc.o: CMakeFiles/mini-simulator.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mini-simulator.dir/Core.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mini-simulator.dir/Core.cc.o -MF CMakeFiles/mini-simulator.dir/Core.cc.o.d -o CMakeFiles/mini-simulator.dir/Core.cc.o -c /workspace/Core.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspace/mini-simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mini-simulator.dir/Core.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mini-simulator.dir/Core.cc.o -MF CMakeFiles/mini-simulator.dir/Core.cc.o.d -o CMakeFiles/mini-simulator.dir/Core.cc.o -c /workspace/mini-simulator/Core.cc
 
 CMakeFiles/mini-simulator.dir/Core.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mini-simulator.dir/Core.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspace/Core.cc > CMakeFiles/mini-simulator.dir/Core.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspace/mini-simulator/Core.cc > CMakeFiles/mini-simulator.dir/Core.cc.i
 
 CMakeFiles/mini-simulator.dir/Core.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mini-simulator.dir/Core.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspace/Core.cc -o CMakeFiles/mini-simulator.dir/Core.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspace/mini-simulator/Core.cc -o CMakeFiles/mini-simulator.dir/Core.cc.s
 
 CMakeFiles/mini-simulator.dir/Simulator.cc.o: CMakeFiles/mini-simulator.dir/flags.make
 CMakeFiles/mini-simulator.dir/Simulator.cc.o: ../Simulator.cc
 CMakeFiles/mini-simulator.dir/Simulator.cc.o: CMakeFiles/mini-simulator.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mini-simulator.dir/Simulator.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mini-simulator.dir/Simulator.cc.o -MF CMakeFiles/mini-simulator.dir/Simulator.cc.o.d -o CMakeFiles/mini-simulator.dir/Simulator.cc.o -c /workspace/Simulator.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspace/mini-simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mini-simulator.dir/Simulator.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mini-simulator.dir/Simulator.cc.o -MF CMakeFiles/mini-simulator.dir/Simulator.cc.o.d -o CMakeFiles/mini-simulator.dir/Simulator.cc.o -c /workspace/mini-simulator/Simulator.cc
 
 CMakeFiles/mini-simulator.dir/Simulator.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mini-simulator.dir/Simulator.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspace/Simulator.cc > CMakeFiles/mini-simulator.dir/Simulator.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspace/mini-simulator/Simulator.cc > CMakeFiles/mini-simulator.dir/Simulator.cc.i
 
 CMakeFiles/mini-simulator.dir/Simulator.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mini-simulator.dir/Simulator.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspace/Simulator.cc -o CMakeFiles/mini-simulator.dir/Simulator.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspace/mini-simulator/Simulator.cc -o CMakeFiles/mini-simulator.dir/Simulator.cc.s
 
 # Object files for target mini-simulator
 mini__simulator_OBJECTS = \
@@ -125,7 +125,7 @@ mini-simulator: CMakeFiles/mini-simulator.dir/Core.cc.o
 mini-simulator: CMakeFiles/mini-simulator.dir/Simulator.cc.o
 mini-simulator: CMakeFiles/mini-simulator.dir/build.make
 mini-simulator: CMakeFiles/mini-simulator.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable mini-simulator"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/workspace/mini-simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable mini-simulator"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mini-simulator.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -137,6 +137,6 @@ CMakeFiles/mini-simulator.dir/clean:
 .PHONY : CMakeFiles/mini-simulator.dir/clean
 
 CMakeFiles/mini-simulator.dir/depend:
-	cd /workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /workspace /workspace /workspace/build /workspace/build /workspace/build/CMakeFiles/mini-simulator.dir/DependInfo.cmake --color=$(COLOR)
+	cd /workspace/mini-simulator/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /workspace/mini-simulator /workspace/mini-simulator /workspace/mini-simulator/build /workspace/mini-simulator/build /workspace/mini-simulator/build/CMakeFiles/mini-simulator.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/mini-simulator.dir/depend
 

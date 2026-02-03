@@ -1,5 +1,6 @@
-CMakeFiles/mini-simulator.dir/main.cpp.o: /workspace/main.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/10/iostream \
+CMakeFiles/mini-simulator.dir/main.cpp.o: \
+ /workspace/mini-simulator/main.cpp /usr/include/stdc-predef.h \
+ /usr/include/c++/10/iostream \
  /usr/include/x86_64-linux-gnu/c++/10/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/10/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -142,8 +143,9 @@ CMakeFiles/mini-simulator.dir/main.cpp.o: /workspace/main.cpp \
  /usr/include/c++/10/bits/locale_facets.tcc \
  /usr/include/c++/10/bits/basic_ios.tcc \
  /usr/include/c++/10/bits/ostream.tcc /usr/include/c++/10/istream \
- /usr/include/c++/10/bits/istream.tcc /workspace/Simulator.h \
- /usr/include/c++/10/memory /usr/include/c++/10/bits/stl_uninitialized.h \
+ /usr/include/c++/10/bits/istream.tcc \
+ /workspace/mini-simulator/Simulator.h /usr/include/c++/10/memory \
+ /usr/include/c++/10/bits/stl_uninitialized.h \
  /usr/include/c++/10/bits/stl_tempbuf.h \
  /usr/include/c++/10/bits/stl_raw_storage_iter.h \
  /usr/include/c++/10/bits/ranges_uninitialized.h \
@@ -165,7 +167,9 @@ CMakeFiles/mini-simulator.dir/main.cpp.o: /workspace/main.cpp \
  /usr/include/c++/10/pstl/execution_defs.h /usr/include/c++/10/vector \
  /usr/include/c++/10/bits/stl_vector.h \
  /usr/include/c++/10/bits/stl_bvector.h \
- /usr/include/c++/10/bits/vector.tcc /workspace/Core.h \
+ /usr/include/c++/10/bits/vector.tcc /workspace/mini-simulator/Core.h \
  /usr/include/c++/10/deque /usr/include/c++/10/bits/stl_deque.h \
- /usr/include/c++/10/bits/deque.tcc /usr/include/c++/10/queue \
- /usr/include/c++/10/bits/stl_heap.h /usr/include/c++/10/bits/stl_queue.h
+ /usr/include/c++/10/bits/deque.tcc /usr/include/c++/10/list \
+ /usr/include/c++/10/bits/stl_list.h /usr/include/c++/10/bits/list.tcc \
+ /usr/include/c++/10/queue /usr/include/c++/10/bits/stl_heap.h \
+ /usr/include/c++/10/bits/stl_queue.h

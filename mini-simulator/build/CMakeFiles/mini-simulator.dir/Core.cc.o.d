@@ -1,5 +1,6 @@
-CMakeFiles/mini-simulator.dir/Core.cc.o: /workspace/Core.cc \
- /usr/include/stdc-predef.h /workspace/Core.h /usr/include/c++/10/deque \
+CMakeFiles/mini-simulator.dir/Core.cc.o: \
+ /workspace/mini-simulator/Core.cc /usr/include/stdc-predef.h \
+ /workspace/mini-simulator/Core.h /usr/include/c++/10/deque \
  /usr/include/c++/10/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/10/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/10/bits/os_defines.h \
@@ -43,7 +44,11 @@ CMakeFiles/mini-simulator.dir/Core.cc.o: /workspace/Core.cc \
  /usr/include/c++/10/bits/range_access.h \
  /usr/include/c++/10/bits/iterator_concepts.h \
  /usr/include/c++/10/concepts /usr/include/c++/10/bits/range_cmp.h \
- /usr/include/c++/10/bits/deque.tcc /usr/include/c++/10/memory \
+ /usr/include/c++/10/bits/deque.tcc /usr/include/c++/10/list \
+ /usr/include/c++/10/bits/stl_list.h \
+ /usr/include/c++/10/bits/allocated_ptr.h \
+ /usr/include/c++/10/ext/aligned_buffer.h \
+ /usr/include/c++/10/bits/list.tcc /usr/include/c++/10/memory \
  /usr/include/c++/10/bits/stl_tempbuf.h \
  /usr/include/c++/10/bits/stl_raw_storage_iter.h \
  /usr/include/c++/10/bits/ranges_uninitialized.h \
@@ -102,9 +107,7 @@ CMakeFiles/mini-simulator.dir/Core.cc.o: /workspace/Core.cc \
  /usr/include/c++/10/bits/functional_hash.h \
  /usr/include/c++/10/bits/shared_ptr.h \
  /usr/include/c++/10/bits/shared_ptr_base.h \
- /usr/include/c++/10/bits/allocated_ptr.h \
  /usr/include/c++/10/bits/refwrap.h \
- /usr/include/c++/10/ext/aligned_buffer.h \
  /usr/include/c++/10/bits/shared_ptr_atomic.h \
  /usr/include/c++/10/bits/atomic_base.h \
  /usr/lib/gcc/x86_64-linux-gnu/10/include/stdint.h /usr/include/stdint.h \

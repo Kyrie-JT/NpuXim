@@ -1,6 +1,6 @@
-CMakeFiles/mini-simulator.dir/Simulator.cc.o: /workspace/Simulator.cc \
- /usr/include/stdc-predef.h /workspace/Simulator.h \
- /usr/include/c++/10/cstdint \
+CMakeFiles/mini-simulator.dir/Simulator.cc.o: \
+ /workspace/mini-simulator/Simulator.cc /usr/include/stdc-predef.h \
+ /workspace/mini-simulator/Simulator.h /usr/include/c++/10/cstdint \
  /usr/include/x86_64-linux-gnu/c++/10/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/10/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -114,11 +114,13 @@ CMakeFiles/mini-simulator.dir/Simulator.cc.o: /workspace/Simulator.cc \
  /usr/include/c++/10/pstl/execution_defs.h /usr/include/c++/10/vector \
  /usr/include/c++/10/bits/stl_vector.h \
  /usr/include/c++/10/bits/stl_bvector.h \
- /usr/include/c++/10/bits/vector.tcc /workspace/Core.h \
+ /usr/include/c++/10/bits/vector.tcc /workspace/mini-simulator/Core.h \
  /usr/include/c++/10/deque /usr/include/c++/10/bits/stl_deque.h \
- /usr/include/c++/10/bits/deque.tcc /usr/include/c++/10/queue \
- /usr/include/c++/10/bits/stl_heap.h /usr/include/c++/10/bits/stl_queue.h \
- /usr/include/c++/10/string /usr/include/c++/10/bits/char_traits.h \
+ /usr/include/c++/10/bits/deque.tcc /usr/include/c++/10/list \
+ /usr/include/c++/10/bits/stl_list.h /usr/include/c++/10/bits/list.tcc \
+ /usr/include/c++/10/queue /usr/include/c++/10/bits/stl_heap.h \
+ /usr/include/c++/10/bits/stl_queue.h /usr/include/c++/10/string \
+ /usr/include/c++/10/bits/char_traits.h \
  /usr/include/c++/10/bits/localefwd.h \
  /usr/include/x86_64-linux-gnu/c++/10/bits/c++locale.h \
  /usr/include/c++/10/clocale /usr/include/locale.h \

@@ -24,23 +24,23 @@ void Core::Cycle() {
         // // --   LOG1
         // std::cout << "[Cycle " << _core_cycles << "] Fetching from Tile " << tile_rr << std::endl;
         auto& inst = tiles[tile_rr]->instructions.front();
-        
+
         if (inst->opcode == Opcode::GEMM) {
+            if (CheckHazardAndUpdate(*inst)) {
+                return;
+            }
             CalculateLatency(*inst);
             // //   ----------LOG2--------
             // std::cout << "  -> Moving inst to ex_queue" << std::endl;
             _ex_inst_queue.push(std::move(inst));
         }
         tiles[tile_rr]->instructions.pop_front();
-        
-        // 【关键逻辑】不再每执行一条就切换 Tile 
-        // tile_rr = (i + 1) % tiles.size(); 
     }
 }
 
 void Core::Compute() {       // 这里把指令发入不同的pipeline计算。现在只有cube_pipeline
                              // offset的计算相当于给双缓冲留了接口
-    finish_cube_pipeline();  // 让已完成的指令退休
+    Finish_cube_pipeline();  // 让已完成的指令退休
     if (!_ex_inst_queue.empty()) {
         // // --- [Log 3] 从发射队列取出 ---
         // std::cout << "[Cycle " << _core_cycles << "] Pop from ex_queue" << std::endl;
@@ -63,6 +63,9 @@ void Core::Compute() {       // 这里把指令发入不同的pipeline计算。�
             front->start_cycle = start_cycle;
         }
         front->finish_cycle = front->start_cycle + front->compute_size;
+        // 新增一块锁存区域
+        AllocateSRAM(front);
+
         cube_pipeline.push(std::move(front));
     }
 }
@@ -83,7 +86,7 @@ void Core::PushTile(std::unique_ptr<Tile> tile) {
     tiles.push_back(std::move(tile));
 }
 
-bool Core::isRunning() const {
+bool Core::IsRunning() const {
     // 只要有任何一个队列不为空，就认为 Core 还在忙
     if (!_ex_inst_queue.empty() || !cube_pipeline.empty()) {
         return true;
@@ -96,13 +99,47 @@ bool Core::isRunning() const {
     return false;
 }
 
-void Core::finish_cube_pipeline() {
+void Core::Finish_cube_pipeline() {
     if (!cube_pipeline.empty()) {
         while (cube_pipeline.front()->finish_cycle <= _core_cycles) {
             // // --- [Log 5] 指令退休 ---
             // std::cout << "[Cycle " << _core_cycles << "] Retire instruction" << std::endl;
             cube_pipeline.pop();
             if (cube_pipeline.empty()) break;
+        }
+    }
+}
+
+bool Core::CheckHazardAndUpdate(const Instruction& inst) {
+    bool Hazard = false;
+    for (const auto& lr : locked_range) {
+        bool overlap_src =
+            (inst.src_addr + inst.src_size > lr->start_addr) && (lr->start_addr + lr->size > inst.src_addr);
+        bool overlap_dest =
+            inst.dest_addr + inst.dest_size > lr->start_addr && (lr->start_addr + lr->size > inst.dest_addr);
+        bool overlap = overlap_src || overlap_dest;
+        if (overlap) {
+            Hazard = true;
+            break;
+        }
+    }
+    return Hazard;
+}
+
+void Core::AllocateSRAM(std::unique_ptr<Instruction>& instr) {
+    auto new_lock = std::make_unique<LockedRange>();
+    new_lock->start_addr = instr->dest_addr;
+    new_lock->size = instr->dest_size;
+    new_lock->release_cycle = instr->finish_cycle;
+    locked_range.push_back(std::move(new_lock));  // 移交unique指针所有权到容器中
+}
+
+void Core::DeleteSRAM() {
+    for (auto it = locked_range.begin(); it != locked_range.end();) {
+        if ((*it)->release_cycle <= _core_cycles) {
+            it = locked_range.erase(it);
+        } else {
+            ++it;
         }
     }
 }

@@ -15,7 +15,7 @@ void Simulator::run() {
         cycle();
         bool all_cores_idle = true;
         for (auto& core : cores) {
-            if (core->isRunning()) {
+            if (core->IsRunning()) {
                 all_cores_idle = false;
                 break;
             }
@@ -43,6 +43,35 @@ void Simulator::cycle() {
     }
 }
 
+// void Simulator::loadInstructions() {
+//     // 假设我们只操作第一个核
+//     if (cores.empty()) return;
+//     auto& target_core = cores[0];
+
+//     // 参数设定
+//     const int NUM_TILES = 4;
+//     const int INSTR_PER_TILE = 128;
+//     const uint32_t MATRIX_SIZE = 256;  // 256*256
+
+//     for (int t = 0; t < NUM_TILES; ++t) {
+//         auto tile = std::make_unique<Tile>();
+//         for (int i = 0; i < INSTR_PER_TILE; ++i) {
+//             auto instr = std::make_unique<Instruction>();
+//             instr->opcode = Opcode::GEMM;
+//             instr->tile_m = MATRIX_SIZE;
+//             instr->tile_n = MATRIX_SIZE;
+//             instr->tile_k = MATRIX_SIZE;
+
+//             // 将指令加入 Tile
+//             tile->instructions.push_back(std::move(instr));
+//         }
+//         // 将 Tile 加入 Core
+//         target_core->PushTile(std::move(tile));
+//     }
+//     std::cout << "Loaded " << NUM_TILES << " tiles with " << INSTR_PER_TILE << " instructions each into Core 0."
+//               << std::endl;
+// }
+
 void Simulator::loadInstructions() {
     // 假设我们只操作第一个核
     if (cores.empty()) return;
@@ -53,6 +82,12 @@ void Simulator::loadInstructions() {
     const int INSTR_PER_TILE = 128;
     const uint32_t MATRIX_SIZE = 256;  // 256*256
 
+    // 计算大小
+    const uint64_t MATRIX_BYTES = MATRIX_SIZE * MATRIX_SIZE * 4;
+
+    // 起始地址
+    addr_type global_addr_ptr = 0x100000;
+
     for (int t = 0; t < NUM_TILES; ++t) {
         auto tile = std::make_unique<Tile>();
         for (int i = 0; i < INSTR_PER_TILE; ++i) {
@@ -62,6 +97,19 @@ void Simulator::loadInstructions() {
             instr->tile_n = MATRIX_SIZE;
             instr->tile_k = MATRIX_SIZE;
 
+            // 设置大小
+            instr->src_size = MATRIX_BYTES;
+            instr->dest_size = MATRIX_BYTES;
+
+            // --- 简单线性分配模式 ---
+            // 每条指令都用自己独立的空间，互不干扰
+            // Instr i: Src=[P, P+S], Dest=[P+S, P+2S]
+            instr->src_addr = global_addr_ptr;
+            global_addr_ptr += MATRIX_BYTES;
+
+            instr->dest_addr = global_addr_ptr;
+            global_addr_ptr += MATRIX_BYTES;
+
             // 将指令加入 Tile
             tile->instructions.push_back(std::move(instr));
         }
@@ -70,4 +118,5 @@ void Simulator::loadInstructions() {
     }
     std::cout << "Loaded " << NUM_TILES << " tiles with " << INSTR_PER_TILE << " instructions each into Core 0."
               << std::endl;
+    std::cout << "Pattern: Independent Addressing (No Hazards)" << std::endl;
 }
