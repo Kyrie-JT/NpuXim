@@ -1,0 +1,44 @@
+# 使用 Ubuntu 20.04 作为基础镜像
+FROM ubuntu:20.04
+
+# 避免安装过程中的交互提示
+ARG DEBIAN_FRONTEND=noninteractive
+
+# 1. 更新系统并安装基础开发工具
+# 建议：如果本地网络访问缓慢，可以取消下面两行关于清华源的注释
+# RUN sed -i 's/archive.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list && \
+#     sed -i 's/security.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
+
+RUN apt-get update && apt-get install -y \
+    gcc-10 g++-10 python3.8 python3-pip git wget make \
+    libssl-dev libasan5 libubsan1 curl && \
+    rm -rf /var/lib/apt/lists/*
+
+# 2. 设置 GCC 10 为默认编译器
+RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 100 && \
+    update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 100
+
+# 3. 安装 CMake 3.22.0 (直接下载官方二进制版，节省数小时的编译时间)
+RUN wget https://github.com/Kitware/CMake/releases/download/v3.22.0/cmake-3.22.0-linux-x86_64.sh && \
+    chmod +x cmake-3.22.0-linux-x86_64.sh && \
+    ./cmake-3.22.0-linux-x86_64.sh --skip-license --prefix=/usr/local && \
+    rm cmake-3.22.0-linux-x86_64.sh
+
+# 4. 安装 Python 依赖库 (使用清华大学镜像源加速)
+RUN pip3 install --no-cache-dir -i https://pypi.tuna.tsinghua.edu.cn/simple \
+    conan==1.57.0 \
+    transformers==4.40.1 \
+    onnx \
+    onnxruntime \
+    torch==2.3.1 \
+    torchvision \
+    optimum
+
+# 设置工作目录
+WORKDIR /workspace
+
+# 设置环境变量 (ONNXim 的路径将在挂载时生效)
+ENV ONNXIM_HOME /workspace/ONNXim
+
+# 默认进入 bash
+CMD ["/bin/bash"]

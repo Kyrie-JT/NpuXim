@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/mini-simulator.dir/main.cpp.o CMakeFiles/mini-simulator.dir/Core.cc.o CMakeFiles/mini-simulator.dir/Simulator.cc.o -o mini-simulator 
